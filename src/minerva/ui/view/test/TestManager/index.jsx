@@ -1,4 +1,6 @@
 import React           from "react"
+import List            from "minerva-react/ui/view/List"
+import ListItem        from "minerva-react/ui/view/ListItem"
 import TestList        from "minerva/ui/view/test/TestList"
 import TestListItem    from "minerva/ui/view/test/TestListItem"
 
