@@ -1,9 +1,8 @@
-import React      from "react"
+import React           from "react"
+import TestList        from "minerva/ui/view/test/TestList"
+import TestListItem    from "minerva/ui/view/test/TestListItem"
 
-import List       from "minerva-react/ui/view/List"
-import ListItem   from "minerva-react/ui/view/ListItem"
-
-import classNames from "minerva/ui/view/test/TestList/classNames"
+import classNames      from "minerva/ui/view/test/TestManager/classNames"
 
 export default class extends React.Component {
     componentWillMount() {
@@ -44,23 +43,24 @@ export default class extends React.Component {
 
     render() {
 
-        console.log(this.state);
+        const {
+            className
+        } = this.props
+
         return (
             <div
-                className={classNames.Host}
+                className={[className, classNames.Host].join(" ")}
             >
-                <div>
-                    <List>
-                        {this.state.tests && this.state.tests.map(x =>
-                            <ListItem key={x.id}>{x.title}</ListItem>
-                        )}
-                    </List>
-                    <List>
-                        {this.state.testTags && this.state.testTags.map(x =>
-                            <ListItem key={x.id}>{x.title}</ListItem>
-                        )}
-                    </List>
-                </div>
+                <List>
+                    {this.state.tests && this.state.tests.map(x =>
+                        <ListItem key={x.id}>{x.title}</ListItem>
+                    )}
+                </List>
+                <TestList>
+                    {this.state.testTags && this.state.testTags.map(x =>
+                        <TestListItem key={x.id}>{x.title}</TestListItem>
+                    )}
+                </TestList>
                 <span>abc</span>
             </div>
         )
