@@ -9,7 +9,7 @@ import classNames      from "minerva/ui/view/test/TestManager/classNames"
 export default class extends React.Component {
     componentWillMount() {
         this.setState({
-            tests: [],
+            tests   : [],
             testTags: []
         })
     }
@@ -24,14 +24,9 @@ export default class extends React.Component {
             } = this.props
 
             try {
-                const tests = await testApi.read()
-                const testTags = await testTagApi.read()
-
-                console.log(tests, testTags)
-
                 this.setState({
-                    tests,
-                    testTags
+                    tests   : await testApi.read(),
+                    testTags: await testTagApi.read()
                 })
 
             } catch (e) {
@@ -39,11 +34,13 @@ export default class extends React.Component {
                 onError(e)
             }
 
-
+            console.log(this.state.tests)
         })()
     }
 
     render() {
+
+        console.log(this.state.tests)
 
         const {
             className
@@ -54,13 +51,16 @@ export default class extends React.Component {
                 className={[className, classNames.Host].join(" ")}
             >
                 <List>
-                    {this.state.tests && this.state.tests.map(x =>
-                        <ListItem key={x.id}>{x.title}</ListItem>
+                    {this.state.testTags && this.state.testTags.map(x =>
+                        <ListItem key={x.id}>{x.name}</ListItem>
                     )}
                 </List>
                 <TestList>
-                    {this.state.testTags && this.state.testTags.map(x =>
-                        <TestListItem key={x.id}>{x.title}</TestListItem>
+                    {this.state.tests && this.state.tests.map(x =>
+                        <TestListItem 
+                            key={x.id}
+                            test={x}
+                        />
                     )}
                 </TestList>
                 <span>abc</span>

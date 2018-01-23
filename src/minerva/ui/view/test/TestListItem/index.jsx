@@ -5,9 +5,17 @@ import classNames from "minerva/ui/view/test/TestListItem/classNames"
 
 export default ({
     className,
-    test
+    test,
+    ...props
 }) => 
     <ListItem
         className={[className, classNames.Host].join(" ")}
+        {...props}
     >
+        <div
+            className={classNames.MainContent}
+        >
+            <div>{test.title}</div>
+            <div>{test.description}</div>
+        </div>
     </ListItem>

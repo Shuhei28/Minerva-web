@@ -63,6 +63,7 @@
     {
       "id": 1,
       "title": "test title",
+      "description": "問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1",
       "quizzes": [
         {
           "type": "written",
@@ -122,6 +123,7 @@
     {
       "id": 2,
       "title": "test2 title",
+      "description": "問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2",
       "quizzes": [
         {
           "type": "written",
@@ -181,6 +183,7 @@
     {
       "id": 3,
       "title": "test3 title",
+      "description": "問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3",
       "quizzes": [
         {
           "type": "written",

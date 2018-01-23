@@ -1,0 +1,7 @@
+.Host {
+}
+
+.MainContent {
+    display         : flex;
+    flex-direction  : column; 
+}
