@@ -50,9 +50,15 @@ export default class extends React.Component {
             <div
                 className={[className, classNames.Host].join(" ")}
             >
-                <List>
+                <List
+                    className={classNames.TestTagList}
+                >
                     {this.state.testTags && this.state.testTags.map(x =>
-                        <ListItem key={x.id}>{x.name}</ListItem>
+                        <ListItem
+                            key={x.id}
+                        >
+                            {x.name}
+                        </ListItem>
                     )}
                 </List>
                 <TestList>
@@ -63,7 +69,6 @@ export default class extends React.Component {
                         />
                     )}
                 </TestList>
-                <span>abc</span>
             </div>
         )
     }

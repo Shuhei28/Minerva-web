@@ -1,3 +1,9 @@
 .Host {
     background-color: #FAFBFD;
+    display         : flex;
+    flex-direction  : column;
+    height          : min-content;
+    margin          : 0 2rem;
+    padding         : 0;
+    width           : 100%;
 }

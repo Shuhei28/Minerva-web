@@ -62,6 +62,12 @@
   "tests": [
     {
       "id": 1,
+      "tags": [
+        "TestTag1",
+        "SampleTag1"
+      ],
+      "like": 120,
+      "correct_answer_rate": 0.72,
       "title": "test title",
       "description": "問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1問題の説明文test1",
       "quizzes": [
@@ -122,6 +128,17 @@
     },
     {
       "id": 2,
+      "tags": [
+        "TestTag1",
+        "SampleTag1",
+        "T1",
+        "サンプル",
+        "sample_1",
+        "hogehuga",
+        "hoge"
+      ],
+      "like": 3,
+      "correct_answer_rate": 0.21,
       "title": "test2 title",
       "description": "問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2問題の説明文test2",
       "quizzes": [
@@ -182,7 +199,15 @@
     },
     {
       "id": 3,
+      "tags": [
+        "TestTag1",
+        "SampleTag1",
+        "T1",
+        "サンプル"
+      ],
+      "like": 12,
       "title": "test3 title",
+      "correct_answer_rate": 0.89,
       "description": "問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3問題の説明文test3",
       "quizzes": [
         {

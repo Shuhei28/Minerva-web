@@ -1,7 +1,49 @@
 .Host {
 }
 
+.Host + .Host {
+    border-top: 1px solid #ddd;
+}
+
 .MainContent {
     display         : flex;
-    flex-direction  : column; 
+    flex-direction  : column;
+    padding         : 1.2rem 0.6rem;
+}
+
+
+.MainContent  > :nth-child(2) {
+    display         : flex;
+    flex-direction  : column;
+    margin-top      : 1rem;
+}
+
+.MainContent  > :nth-child(3) {
+    display        : flex;
+    justify-content: flex-end;
+}
+
+.Header {
+    display: flex;
+}
+
+.Header > :nth-child(1) {
+    flex-grow  : 1;
+    font-size  : 1.3rem;
+    white-space: nowrap;
+}
+
+.Header > :nth-child(2) {
+    display: flex;
+}
+
+.Chip {
+    align-items     : center;
+    background-color: #FFA000;
+    border-radius   : 14px;
+    color           : white;
+    display         : inline-flex;
+    margin          : 0 0.2rem;
+    padding         : 0.2rem 0.4rem;
+    white-space     : nowrap;
 }
