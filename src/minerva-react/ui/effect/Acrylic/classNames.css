@@ -1,0 +1,19 @@
+.Host {
+    overflow: hidden;
+    position: relative;
+}
+
+.Host > :not(:last-child) {
+    z-index: 1;
+}
+
+.Host > :last-child {
+    bottom  : 0;
+    filter  : blur(10px);
+    left    : 0;
+    position: absolute;
+    right   : 0;
+    top     : 0;
+    z-index : 0;
+    -webkit-filter: blur(10px);
+}

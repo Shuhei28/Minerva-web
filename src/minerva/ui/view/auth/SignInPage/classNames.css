@@ -1,0 +1,81 @@
+
+.Host {
+    align-items     : center;
+    background      : #56CCF2;
+    background      : -webkit-linear-gradient(to right, #2F80ED, #56CCF2);
+    background      : linear-gradient(to right, #2F80ED, #56CCF2);
+    background-size : cover;
+    display         : flex;
+    flex-direction  : column;
+    height          : 100%;
+    justify-content : center;
+    max-height      : 100%;
+    max-width       : 100%;
+    width           : 100%;
+}
+
+.Host > h3 {
+    color        : white;
+    font-family  : cursive;
+    font-size    : 3.4rem;
+    font-weight  : 600;
+    margin-bottom: 0.4rem;
+}
+
+.Host > :nth-child(2) {
+    align-items    : center;
+    display        : flex;
+    justify-content: center;
+    min-width      : 100vw;
+    width          : 100vw;
+}
+
+.LoginShadow {
+    border-radius    : 8px;
+    z-index          : 2;
+    position         : relative;
+}
+
+.LoginForm {
+    align-items    : center;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    min-height     : 255px;
+    max-height     : calc(50vh - 16px);
+    overflow       : auto;
+    position       : relative;
+    z-index        : 10;
+}
+
+.LoginForm > :nth-child(1) {
+    display       : flex;
+    flex-direction: column;
+    width         : 220px;
+}
+
+.LoginForm > :nth-child(2) {
+    display         : flex;
+    flex-direction  : row;
+    justify-content : space-around;
+    align-items     : center;
+    margin          : 8px;
+}
+
+.LoginKeep {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+}
+
+.CheckBox {
+    margin : 0 6px;
+}
+
+.OwlIcon {
+    background-size : 100%;
+    bottom          : -2rem;
+    margin-left     : 2rem;
+    position        : absolute;
+    right           : 5rem;
+}
