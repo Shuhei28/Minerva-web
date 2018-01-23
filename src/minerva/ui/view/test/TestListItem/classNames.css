@@ -19,8 +19,14 @@
 }
 
 .MainContent  > :nth-child(3) {
+    align-items    : center;
     display        : flex;
     justify-content: flex-end;
+    margin-top     : 1rem;
+}
+
+.MainContent  > :nth-child(3) > * {
+    margin: 0 0.5rem;
 }
 
 .Header {

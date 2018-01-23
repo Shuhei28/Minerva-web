@@ -33,8 +33,7 @@ export default ({
                 {test.description}
             </div>
             <div>
-                <div>{test.correct_answer_rate}</div>
-                <div><span>正答率</span><span>{test.quizzes.correct_answer_rate * 100}</span><span>%</span></div>
+                <div><span>正答率</span><span>{test.correct_answer_rate * 100}</span><span>%</span></div>
                 <div><span>問題数</span><span>{test.quizzes.length}</span><span>問</span></div>
                 <div><span>LIKE</span><span>{test.like}</span></div>
             </div>
