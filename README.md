@@ -4,30 +4,30 @@
 ## How to build
 #### node package install
 ```bash
-npm install
+$ npm install
 ```
 
 #### production build
 ```bash
-npm run postinstall:production
+$ npm run postinstall:production
 ```
 
 #### development build
 ```bash
-npm run postinstall:development
+$ npm run postinstall:development
 ```
 
 ## blowser sync
 ```bash
-npm start
+$ npm start
 ```
 access to `localhost:3000` on your blowser
 
 ## debug
 
 ```bash
-npm install
-npm run postinstall:development
-npm run mock-server
-npm start
+$ npm install
+$ npm run postinstall:development
+$ npm run mock-server
+$ npm start
 ```

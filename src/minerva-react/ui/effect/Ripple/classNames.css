@@ -8,8 +8,8 @@
     display         : inline-block;
     position        : absolute;
     border-radius   : 50%;
-    background-color: rgba(0, 0, 0, .7);
-    animation       : ripple .3s ease-out both;
+    background-color: rgba(0, 0, 0, .3);
+    animation       : ripple .6s ease-out both;
     pointer-events  : none;
 }
 

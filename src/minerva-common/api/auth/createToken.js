@@ -1,15 +1,17 @@
 export default async ({
-  apiHost,
-  email,
-  password
+    apiHost,
+    email,
+    password
 }) => {
-    let response = await fetch(
+
+    const response = await fetch(
         apiHost + "/api/auth/tokens", {
-          method : "GET",
-          headers: {
-            Authorization: "Basic " + window.btoa(email + ":" + password)
-          }
-      });
+            method : "GET",
+            headers: {
+                Authorization: "Basic " + window.btoa(email + ":" + password)
+            }
+        }
+    );
 
     if (!response.ok)
         throw response;

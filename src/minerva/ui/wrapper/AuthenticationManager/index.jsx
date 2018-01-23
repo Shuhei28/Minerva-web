@@ -39,6 +39,7 @@ export default class extends React.Component {
                     email,
                     password
                 }) => {
+                    console.log(createToken)
 
                     const authenticationInformation = await createToken({
                         apiHost: config["minerva_api_host"],
@@ -46,18 +47,16 @@ export default class extends React.Component {
                         password
                     })
 
-                    (
-                        staySignedIn ? localStorage
-                      :                sessionStorage
+                    const storage = staySignedIn ? localStorage : sessionStorage
+                    
+                    storage.setItem(
+                        "authentication-information-v1",
+                        JSON.stringify({
+                            token    : authenticationInformation.token,
+                            tokenType: authenticationInformation.tokenType,
+                            userId   : authenticationInformation.userId
+                        })
                     )
-                        .setItem(
-                            "authentication-information-v1",
-                            JSON.stringify({
-                                token    : authenticationInformation.token,
-                                tokenType: authenticationInformation.tokenType,
-                                userId   : authenticationInformation.userId
-                            })
-                        )
 
                     this.setState({
                         authenticationInformation

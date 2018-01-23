@@ -3,18 +3,19 @@ export default async({
     token,
     tokenType
 }) => {
-  let response = await fetch(
-    apiHost + "/auth/tokens",
-    {
-      method : "DELETE",
-      headers: {
-        Authorization: tokenType + " " + token
-      }
-    }
-  );
 
-  if (!response.ok)
-    throw response;
+    const response = await fetch(
+        apiHost + "/auth/tokens",
+        {
+            method : "DELETE",
+            headers: {
+                Authorization: tokenType + " " + token
+            }
+        }
+    );
 
-  return response
+    if (!response.ok)
+        throw response;
+
+    return response
 };

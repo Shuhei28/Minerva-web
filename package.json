@@ -1,11 +1,12 @@
 {
   "name": "minerva",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "postinstall": "npm run postinstall:production",
-    "postinstall:development": "VISITOR_SERVER_URI=http://localhost:3000 webpack -d",
-    "postinstall:production": "webpack -p",
-    "start": "browser-sync start --config bs-config.js"
+    "postinstall:development": "API_SERVER_DOMAIN=http://localhost:3001 node_modules/.bin/webpack -d",
+    "postinstall:production": "node_modules/.bin/webpack -p",
+    "start": "node_modules/.bin/browser-sync start --config bs-config.js",
+    "mock-server": "node mock/index.js"
   },
   "license": "ISC",
   "devDependencies": {
@@ -19,6 +20,7 @@
     "browser-sync": "^2.18.13",
     "connect-history-api-fallback": "^1.4.0",
     "css-loader": "^0.28.7",
+    "json-server": "^0.12.1",
     "postcss-loader": "^2.0.8",
     "query-string": "^5.0.1",
     "react": "^16.0.0",
@@ -29,11 +31,5 @@
     "style-loader": "^0.19.0",
     "webpack": "^3.8.1",
     "whatwg-fetch": "^2.0.3"
-  },
-  "dependencies": {
-    "babel-minify-webpack-plugin": "^0.2.0",
-    "cors": "^2.8.4",
-    "uglify-es-webpack-plugin": "^0.10.0",
-    "uglifyjs-webpack-plugin": "^1.0.1"
   }
 }

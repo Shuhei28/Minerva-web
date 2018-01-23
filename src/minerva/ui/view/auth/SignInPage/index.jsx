@@ -52,6 +52,7 @@ export default class extends React.Component {
                                     staySignedIn: this.state.checkBoxIsSelected
                                 })
                             } catch (e) {
+                                throw e
                                 console.log(e);
                                 onError(e);
                                 form.querySelector("*[name='password']").value = "";
@@ -86,14 +87,14 @@ export default class extends React.Component {
                                         this.setState({checkBoxIsSelected: !this.state.checkBoxIsSelected})
                                     }
                                 />
-                                ログインを維持
+                                サインインを維持
                             </div>
                             <Button
                                 buttonType="flat"
                                 component="button"
                                 type="submit"
                             >
-                                ログイン
+                                サインイン
                             </Button>
                         </div>
                     </form>
