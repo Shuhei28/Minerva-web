@@ -1,10 +1,11 @@
 export default async ({
     apiHost,
     token,
-    tokenType
+    tokenType,
+    userId
 }) => {
     const response = await fetch(
-        apiHost + "/api/test_tags",
+        apiHost + "/api/users/" + userId,
         {
             method : "GET",
             headers: {

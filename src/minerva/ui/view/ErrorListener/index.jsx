@@ -12,7 +12,7 @@ export default class extends React.Component {
     }
 
     render() {
-        let {
+        const {
             component = "div",
             Component = component,
             children,

@@ -4,7 +4,7 @@ export default async ({
     tokenType
 }) => {
     const response = await fetch(
-        apiHost + "/api/test_tags",
+        apiHost + "/api/users",
         {
             method : "GET",
             headers: {

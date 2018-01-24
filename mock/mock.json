@@ -2,7 +2,9 @@
   "users": [
     {
       "id": 1,
-      "name": "example user"
+      "name": "Test User",
+      "display_name": "John Smith",
+      "avatar": "http://placehold.jp/150x150.png?text=Avatar"
     }
   ],
   "test_tags": [

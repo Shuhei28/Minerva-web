@@ -27,7 +27,8 @@ export default class extends React.Component {
     }
 
     render() {
-        let {
+        const {
+            onError,
             render,
             ...props
         } = this.props
@@ -39,43 +40,54 @@ export default class extends React.Component {
                     email,
                     password
                 }) => {
-                    console.log(createToken)
-
-                    const authenticationInformation = await createToken({
-                        apiHost: config["minerva_api_host"],
-                        email,
-                        password
-                    })
-
-                    const storage = staySignedIn ? localStorage : sessionStorage
-                    
-                    storage.setItem(
-                        "authentication-information-v1",
-                        JSON.stringify({
-                            token    : authenticationInformation.token,
-                            tokenType: authenticationInformation.tokenType,
-                            userId   : authenticationInformation.userId
+                    try {
+                        const authenticationInformation = await createToken({
+                            apiHost: config["minerva_api_host"],
+                            email,
+                            password
                         })
-                    )
 
-                    this.setState({
-                        authenticationInformation
-                    })
+                        const storage = staySignedIn ? localStorage : sessionStorage
+                        
+                        storage.setItem(
+                            "authentication-information-v1",
+                            JSON.stringify({
+                                token    : authenticationInformation.token,
+                                tokenType: authenticationInformation.tokenType,
+                                userId   : authenticationInformation.userId
+                            })
+                        )
 
-                    for (let f of this.state.subscribers)
-                        f(authenticationInformation)
+                        this.setState({
+                            authenticationInformation
+                        })
+
+                        for (let f of this.state.subscribers)
+                            f(authenticationInformation)
+                    } catch (e) {
+                        onError(e)
+                    }
                 },
                 delete: _ => new Promise(async resolve => {
+                    try {
+                        const authenticationInformation = await deleteToken({
+                            apiHost  : config["minerva_api_host"],
+                            token    : this.state.authenticationInformation.token,
+                            tokenType: this.state.authenticationInformation.tokenType
+                        })
 
-                    [localStorage, sessionStorage]
-                        .map(x => x.removeItem("authentication-information-v1"))
+                        [localStorage, sessionStorage]
+                            .map(x => x.removeItem("authentication-information-v1"))
 
-                    this.setState({
-                        authenticationInformation: undefined
-                    })
+                        this.setState({
+                            authenticationInformation: undefined
+                        })
 
-                    for (let f of this.state.subscribers)
-                        f(undefined)
+                        for (let f of this.state.subscribers)
+                            f(undefined)
+                    } catch (e) {
+                        onError(e)
+                    }
                     
                 }),
                 read: _ => this.state.authenticationInformation,
@@ -103,6 +115,7 @@ export default class extends React.Component {
                         resolve()
                 })
             },
+            onError,
             ...props
         })
     }

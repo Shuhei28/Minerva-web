@@ -52,4 +52,5 @@
     margin          : 0 0.2rem;
     padding         : 0.2rem 0.4rem;
     white-space     : nowrap;
+    z-index         : 1;
 }

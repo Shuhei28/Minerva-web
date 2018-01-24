@@ -1,8 +1,9 @@
 import React           from "react"
-import List            from "minerva-react/ui/view/List"
-import ListItem        from "minerva-react/ui/view/ListItem"
+import toQuery         from "minerva-common/util/toQuery"
 import TestList        from "minerva/ui/view/test/TestList"
 import TestListItem    from "minerva/ui/view/test/TestListItem"
+import List            from "minerva-react/ui/view/List"
+import ListItem        from "minerva-react/ui/view/ListItem"
 
 import classNames      from "minerva/ui/view/test/TestManager/classNames"
 
@@ -17,7 +18,8 @@ export default class extends React.Component {
     componentDidMount() {
         (async _ => {
 
-            let {
+            const {
+                location,
                 onError,
                 testApi,
                 testTagApi
@@ -26,24 +28,23 @@ export default class extends React.Component {
             try {
                 this.setState({
                     tests   : await testApi.read(),
-                    testTags: await testTagApi.read()
+                    testTags: await testTagApi.read({
+                        query: toQuery(location)
+                    })
                 })
 
             } catch (e) {
                 console.log(e)
                 onError(e)
             }
-
-            console.log(this.state.tests)
         })()
     }
 
     render() {
 
-        console.log(this.state.tests)
-
         const {
-            className
+            className,
+            location
         } = this.props
 
         return (
@@ -56,6 +57,8 @@ export default class extends React.Component {
                     {this.state.testTags && this.state.testTags.map(x =>
                         <ListItem
                             key={x.id}
+                            location={location}
+                            to={"/test?tag=" + x.name}
                         >
                             {x.name}
                         </ListItem>

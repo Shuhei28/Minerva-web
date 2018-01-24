@@ -1,19 +1,27 @@
-import toCamelCase from "minerva-common/util/toCamelCase"
+import toURIQuery from "minerva-common/api/encoding/toURIQuery"
 
 export default async ({
     apiHost,
     token,
-    tokenType
-}) => 
-    await (
-        await fetch(
-            apiHost + "/api/tests",
-            {
-                method : "GET",
-                headers: {
-                    "Authorization": tokenType + " " + token
-                }
+    tokenType,
+    query
+}) => {
+    const response = await fetch(
+        apiHost + "/api/tests" + (
+            query ? "?" + toURIQuery(query)
+          :         ""
+        ),
+        {
+            method : "GET",
+            headers: {
+                "Authorization": tokenType + " " + token
             }
-        )
+        }
     )
-        .json()
+
+    if(!response.ok)
+        throw response
+    
+    return await response.json()
+
+}
