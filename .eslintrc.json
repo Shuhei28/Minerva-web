@@ -1,0 +1,22 @@
+{
+    "extends": [
+        "airbnb"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "no-undef": "off",
+        "comma-dangle": 0,
+        "indent": [
+            "error",
+            4
+        ],
+        "quotes": [
+            2,
+            "double"
+        ]
+    }
+}
